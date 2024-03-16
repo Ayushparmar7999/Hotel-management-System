@@ -1,0 +1,39 @@
+{% extends 'basic.html' %}
+{% block body %}
+{% load static %}
+
+ <!-- body -->
+ <body class="main-layout">
+    <div class="back_re">
+       <div class="container">
+          <div class="row">
+             <div class="col-md-12">
+                <div class="title">
+                   <h2>About Us</h2>
+                </div>
+             </div>
+          </div>
+       </div>
+    </div>
+    <!-- about -->
+    <div class="about">
+       <div class="container-fluid">
+          <div class="row">
+             <div class="col-md-5">
+                <div class="titlepage">
+                   <h2>About Us</h2>
+                   <p>
+                     Krishna Hotel is a renowned hospitality establishment that offers a perfect blend of comfort and luxury. With its exquisite interiors and top-notch amenities, Krishna Hotel is a preferred choice for discerning travelers seeking a memorable stay. The hotel's impeccable service and strategic location make it an ideal destination for both business and leisure travelers. Experience unparalleled hospitality at Krishna Hotel, where every detail is meticulously curated for an unforgettable stay.</p>
+                   <a class="read_more" href="Javascript:void(0)"> Read More</a>
+                </div>
+             </div>
+             <div class="col-md-7">
+                <div class="about_img">
+                   <figure><img src="{% static 'images/about.png' %}" alt="#"/></figure>
+                </div>
+             </div>
+          </div>
+       </div>
+    </div>
+    <!-- end about -->
+{% endblock body %}

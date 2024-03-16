@@ -1,0 +1,75 @@
+{% extends 'basic.html' %}
+{% block body %}
+{% load app_tags %}
+<head>
+    <style>
+        *{
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+
+.mybookpayment{
+    background-color:whitesmoke;
+    padding: 8px;
+    border-radius: 30px;
+    width: 130px;
+}
+.mybookpayment:hover
+{
+    background-color: rgb(241, 162, 14);
+    /* border: 2px solid white; */
+    color: white;
+    padding: -8px;
+}
+h2{
+    text-align: center;
+    font-size: 18px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: white;
+    padding: 30px 0;
+}
+
+    </style>
+</head>
+
+<body>
+    
+<div class="table-wrapper" style="height: 450px;">
+<h3 class="text-center  text-success">My Bookings </h3>
+
+    <table class="fl-table">
+        <thead>
+        <th>User</th>
+        <th>Room Number</th>
+        <th>Location</th>
+        <!-- <th>Person</th> -->
+        <th>Check in</th>
+        <th>Check out</th>
+        <th>Price</th>
+        <th >Payment</th>
+    </thead>
+    {% for each_booking in bookings %}
+    <tr>
+        <td>{{each_booking.guest.username}}</td>
+        <td>{{each_booking.room.roomnumber}}</td>
+        <td>{{each_booking.room.hotel.location}}</td>
+        <td>{{each_booking.check_in}}</td>
+        <td>{{each_booking.check_out}}</td>
+        <td>{{each_booking.room.price}}</td>
+        <td>
+            
+            <form action="{% url 'payment' nm=each_booking.guest.username pr=each_booking.room.price %}" method="post">
+                {% csrf_token %}
+                <button class="mybookpayment">Pay Now</button>
+            </form>
+        </td>
+    </tr>
+    {% endfor %}
+</tr>
+<tbody>
+</table>
+</div>
+</body>
+{% endblock body %}
